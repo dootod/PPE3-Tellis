@@ -1,3 +1,40 @@
+<?php
+session_start();
+
+try {
+    $bdd = new PDO('mysql:host=localhost;dbname=marché', 'root', '');
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (Exception $e) {
+    die('Erreur : ' . $e->getMessage());
+}
+
+$error_message = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    
+    $query = $bdd->prepare("SELECT * FROM profil WHERE login_profil = :username");
+    $query->execute(['username' => $username]);
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($user) {
+        $error_message = "Cet identifiant est déjà utilisé.";
+    } else {
+        $query = $bdd->prepare("INSERT INTO profil (login_profil, password_profil, typeprofil_profil) 
+                                VALUES (:username, :password, :profile_type)");
+        $query->execute([
+            'username' => $username,
+            'password' => $password,  
+            'profile_type' => 'commerçant'  
+        ]);
+
+        header('Location: index.php');
+        exit();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,18 +48,21 @@
     <div class="page-container">
         <div class="content-wrap">
             <div class="wrapper">
-                <form action="">
+                <form action="" method="POST">
                     <h1>S'inscrire</h1>
+                    <?php if (!empty($error_message)): ?>
+                        <p style="color: red; text-align: center;"><?php echo $error_message; ?></p>
+                    <?php endif; ?>
                     <div class="input-box">
-                        <input type="text" placeholder="Identifiant" required>
+                        <input type="text" name="username" placeholder="Identifiant" required>
                         <i class='bx bxs-user'></i>
                     </div>
                     <div class="input-box">
-                        <input type="text" placeholder="Mail" required>
+                        <input type="email" placeholder="Mail">
                         <i class='bx bxs-envelope'></i>
                     </div>
                     <div class="input-box">
-                        <input type="password" placeholder="Mot de passe" required>
+                        <input type="password" name="password" placeholder="Mot de passe" required>
                         <i class='bx bxs-lock-alt' ></i>
                     </div>
                     <button type="submit" class="btn">S'inscrire</button>
