@@ -6,9 +6,10 @@ Ce projet a été développé dans le cadre d'un entraînement en première ann�
 ## 🎯 Objectif
 | 🏆 Objectif | Détail |
 |------------|--------|
-| 📅 Gestion | Permettre aux commerçants de réserver leurs emplacements à l'avance |
-| 🌍 Accessibilité | Accès en ligne via un navigateur |
-| 🛠️ Simplicité | Interface intuitive pour une prise en main rapide |
+| 💻 Approfondissement | Développer des compétences en HTML, CSS, PHP et SQL |
+| 🏗️ Projet concret | Travailler sur un projet appliqué et réaliste |
+| 🤝 Collaboration | Apprendre à s'organiser et travailler en équipe |
+| 🎨 Design | Approfondir les compétences en maquettage et conception visuelle |
 
 ## 🛠️ Technologies utilisées
 | 🔧 Technologie | Description |
@@ -20,10 +21,10 @@ Ce projet a été développé dans le cadre d'un entraînement en première ann�
 ## 👥 Équipe de développement
 | 🧑‍💻 Nom | Rôle |
 |---------|------|
-| **Thomas Dumont** | Développement et coordination |
-| **Gaël Pidoux** | Backend & gestion de la base de données |
-| **Rayan Houstani** | Intégration et design |
-| **Maxence Gaillard** | Tests et corrections |
+| **Thomas Dumont** | Développement |
+| **Gaël Pidoux** | Développement |
+| **Rayan Houstani** | Développement |
+| **Maxence Gaillard** | Développement |
 
 ---
 
