@@ -54,9 +54,9 @@ CREATE TABLE `emplacement` (
 
 CREATE TABLE `jours_marche` (
   `id_jours_marche` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_jours_marche`),  -- Modifié pour AUTO_INCREMENT
   `semaines_jours_marche` int DEFAULT NULL,
-  `jours_marche` date DEFAULT NULL
+  `jours_marche` date DEFAULT NULL,
+  PRIMARY KEY (`id_jours_marche`)  -- Correction : clé primaire définie après les colonnes
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
