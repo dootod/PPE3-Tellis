@@ -56,7 +56,7 @@ CREATE TABLE `jours_marche` (
   `id_jours_marche` int NOT NULL AUTO_INCREMENT,
   `semaines_jours_marche` int DEFAULT NULL,
   `jours_marche` date DEFAULT NULL,
-  PRIMARY KEY (`id_jours_marche`)  -- Correction : clé primaire définie après les colonnes
+  PRIMARY KEY (`id_jours_marche`)  -- Clé primaire définie ici
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -114,8 +114,9 @@ ALTER TABLE `emplacement`
 --
 -- Indexes for table `jours_marche`
 --
-ALTER TABLE `jours_marche`
-  ADD PRIMARY KEY (`id_jours_marche`);
+-- Supprimez cette ligne car la clé primaire est déjà définie dans la déclaration de la table
+-- ALTER TABLE `jours_marche`
+--   ADD PRIMARY KEY (`id_jours_marche`);
 
 --
 -- Indexes for table `profil`
