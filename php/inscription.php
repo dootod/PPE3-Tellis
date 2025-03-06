@@ -2,7 +2,8 @@
 session_start();
 
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=marché', 'root', '');
+    // Connexion à la base de données
+    $bdd = new PDO('mysql:host=localhost;dbname=marché;charset=utf8', 'root', '');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
@@ -11,9 +12,11 @@ try {
 $error_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    
+    // Récupération des données du formulaire
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+
+    // Vérification si l'utilisateur existe déjà
     $query = $bdd->prepare("SELECT * FROM profil WHERE login_profil = :username");
     $query->execute(['username' => $username]);
     $user = $query->fetch(PDO::FETCH_ASSOC);
@@ -21,14 +24,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user) {
         $error_message = "Cet identifiant est déjà utilisé.";
     } else {
+        // Hachage du mot de passe
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Insertion du nouvel utilisateur dans la base de données
         $query = $bdd->prepare("INSERT INTO profil (login_profil, password_profil, typeprofil_profil) 
                                 VALUES (:username, :password, :profile_type)");
         $query->execute([
             'username' => $username,
-            'password' => $password,  
-            'profile_type' => 'commerçant'  
+            'password' => $hashed_password,
+            'profile_type' => 'commerçant'
         ]);
 
+        // Redirection vers la page de connexion
         header('Location: index.php');
         exit();
     }
@@ -63,11 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <div class="input-box">
                         <input type="password" name="password" placeholder="Mot de passe" required>
-                        <i class='bx bxs-lock-alt' ></i>
+                        <i class='bx bxs-lock-alt'></i>
                     </div>
                     <button type="submit" class="btn">S'inscrire</button>
                     <div class="register-link">
-                            <p>Déjà inscrit ? <a href="index.php">Retour au login !</a></p>
+                        <p>Déjà inscrit ? <a href="index.php">Retour au login !</a></p>
                     </div>
                 </form>
             </div>

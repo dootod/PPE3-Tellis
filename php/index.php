@@ -2,7 +2,8 @@
 session_start();
 
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=marché', 'root', '');
+    // Connexion à la base de données
+    $bdd = new PDO('mysql:host=localhost;dbname=marché;charset=utf8', 'root', '');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
@@ -11,20 +12,22 @@ try {
 $error_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    // Récupération des données du formulaire
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
 
-    $query = $bdd->prepare("SELECT * FROM profil WHERE login_profil = :username AND password_profil = :password");
-    $query->execute([
-        'username' => $username,
-        'password' => $password 
-    ]);
+    // Recherche de l'utilisateur dans la base de données
+    $query = $bdd->prepare("SELECT * FROM profil WHERE login_profil = :username");
+    $query->execute(['username' => $username]);
     $user = $query->fetch(PDO::FETCH_ASSOC);
 
-    if ($user) {
+    // Vérification du mot de passe
+    if ($user && password_verify($password, $user['password_profil'])) {
+        // Connexion réussie
         $_SESSION['username'] = $user['login_profil'];
         $_SESSION['type_profil'] = $user['typeprofil_profil'];
 
+        // Redirection en fonction du type de profil
         if ($user['typeprofil_profil'] === 'commerçant') {
             header('Location: commercant.php');
             exit();
@@ -33,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
     } else {
+        // Identifiant ou mot de passe incorrect
         $error_message = "Identifiant ou mot de passe incorrect.";
     }
 }
@@ -59,16 +63,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form action="" method="POST">
                         <h1>Login</h1>
                         <?php if (!empty($error_message)): ?>
-                        <p style="color: red; text-align: center; padding-top: 20px;">
-                            <?php echo $error_message; ?>
-                        </p>
+                            <p style="color: red; text-align: center; padding-top: 20px;">
+                                <?php echo $error_message; ?>
+                            </p>
                         <?php endif; ?>
                         <div class="input-box">
-                            <input type="text" name="username" id="username" placeholder="Identifiant" required>
+                            <input type="text" name="username" placeholder="Identifiant" required>
                             <i class='bx bxs-user'></i>
                         </div>
                         <div class="input-box">
-                            <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+                            <input type="password" name="password" placeholder="Mot de passe" required>
                             <i class='bx bxs-lock-alt'></i>
                         </div>
                         <button type="submit" class="btn">Se connecter</button>
