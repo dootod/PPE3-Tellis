@@ -12,51 +12,58 @@ if (!isset($_SESSION['username']) || $_SESSION['type_profil'] !== 'commerçant')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espace Commerçant</title>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px 60px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-            max-width: 500px;
-            width: 100%;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-            color: #fff;
-        }
-        p {
-            font-size: 1.2rem;
-            color: #e0e0e0;
-            margin: 0;
-        }
-        .username {
-            font-weight: bold;
-            color: #ffeb3b;
-        }
-    </style>
+    <title>Espace gestionnaire</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style_gestionnaire.css">
+    <script src="https://kit.fontawesome.com/298ba219c7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Bienvenue, Commerçant !</h1>
-        <p>Vous êtes connecté en tant que <span class="username"><?php echo htmlspecialchars($_SESSION['username']); ?></span>.</p>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fa-solid fa-house-user logo"></i> <!-- Logo avec classe "logo" -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion jour</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion emplacement</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion reservation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="row justify-content-center">
+            <div class="col-md-8 content-1 text-center">
+                <h1 class="titre">
+                    Bienvenue dans l'espace gestionnaire <?php echo htmlspecialchars($_SESSION['username']); ?> !
+                </h1>
+                <p class="p-content-1">Vous êtes maintenant connecté sur votre compte commerçant et 
+                    avez donc accès à toute les fonctionnalités liés aux commerçant.
+                </p>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        © 2025 Tellis. Tous droits réservés.
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

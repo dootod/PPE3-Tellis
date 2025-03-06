@@ -33,7 +33,7 @@ if (!isset($_SESSION['username']) || $_SESSION['type_profil'] !== 'gestionnaire'
                         <a class="nav-link active" aria-current="page" href="#">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion jour</a>
+                        <a class="nav-link" href="gestion_jours_marché.php">Gestion jour</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Gestion emplacement</a>

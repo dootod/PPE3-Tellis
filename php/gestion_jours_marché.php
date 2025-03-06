@@ -96,10 +96,38 @@ $bdd = null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajout et Suppression de jour de marché</title>
-    <link rel="stylesheet" href="css/style_gestion_jours_marche.css">
+    <link rel="stylesheet" href="../css/style_gestion_jours_marche.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/298ba219c7.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fa-solid fa-house-user logo"></i> <!-- Logo avec classe "logo" -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="gestionnaire.php">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestion_jours_marché.php">Gestion jour</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion emplacement</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion reservation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="content-wrap">
         <div class="wrapper">
             <h1> Ajouter des jour de marché</h1>
@@ -147,5 +175,6 @@ $bdd = null;
     <footer>
             © 2025 Tellis. Tous droits réservés.
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
