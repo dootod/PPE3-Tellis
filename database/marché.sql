@@ -66,7 +66,7 @@ CREATE TABLE `jours_marche` (
 
 CREATE TABLE `profil` (
   `login_profil` varchar(50) NOT NULL,
-  `password_profil` varchar(50) DEFAULT NULL,
+  `password_profil` varchar(255) DEFAULT NULL,  <!-- Modifié en VARCHAR(255) -->
   `typeprofil_profil` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -160,6 +160,12 @@ ALTER TABLE `reservation`
 ALTER TABLE `selectionner`
   ADD CONSTRAINT `selectionner_ibfk_1` FOREIGN KEY (`id_emplacement`) REFERENCES `emplacement` (`id_emplacement`),
   ADD CONSTRAINT `selectionner_ibfk_2` FOREIGN KEY (`id_reservation`) REFERENCES `reservation` (`id_reservation`);
+
+--
+-- Modifier la colonne password_profil pour stocker les mots de passe hachés
+--
+ALTER TABLE `profil` MODIFY `password_profil` VARCHAR(255);  <!-- Ajout de la commande ALTER TABLE -->
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
