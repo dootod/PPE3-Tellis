@@ -1,3 +1,6 @@
+<!-- Cette page nous sert uniquement pour créer des comptes gestionnaires et seulement les administrateurs 
+(donc Thomas, Maxen, Rayan et Gaëlle pourrons l'utiliser) -->
+
 <?php
 session_start();
 
