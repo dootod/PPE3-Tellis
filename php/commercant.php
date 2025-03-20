@@ -15,7 +15,7 @@ if (!isset($_SESSION['username']) || $_SESSION['type_profil'] !== 'commerçant')
     <title>Espace gestionnaire</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style_gestionnaire.css">
+    <link rel="stylesheet" href="../css/style_commerçant.css">
     <script src="https://kit.fontawesome.com/298ba219c7.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -50,7 +50,7 @@ if (!isset($_SESSION['username']) || $_SESSION['type_profil'] !== 'commerçant')
         <div class="row justify-content-center">
             <div class="col-md-8 content-1 text-center">
                 <h1 class="titre">
-                    Bienvenue dans l'espace gestionnaire <?php echo htmlspecialchars($_SESSION['username']); ?> !
+                    Bienvenue dans l'espace commerçant <?php echo htmlspecialchars($_SESSION['username']); ?> !
                 </h1>
                 <p class="p-content-1">Vous êtes maintenant connecté sur votre compte commerçant et 
                     avez donc accès à toute les fonctionnalités liés aux commerçant.

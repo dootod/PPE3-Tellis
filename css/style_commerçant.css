@@ -1,0 +1,87 @@
+/* Style général */
+body {
+    background-image: url('../img/fond.png'); /* Remplacez par le chemin de votre image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white; /* Couleur du texte */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Hauteur minimale de la vue */
+}
+
+/* Navbar personnalisée */
+.navbar-custom {
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    padding: 10px 0;
+}
+
+.navbar-custom .navbar-brand .logo {
+    font-size: 2rem; /* Taille du logo augmentée */
+    color: #fff;
+    transition: transform 0.3s ease; /* Animation au survol */
+}
+
+.navbar-custom .navbar-brand .logo:hover {
+    transform: scale(1.1); /* Effet de zoom au survol */
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    font-size: 1.2rem; /* Taille de la police augmentée */
+    color: #fff;
+    margin: 0 10px;
+    position: relative;
+    transition: color 0.3s ease; /* Transition de couleur */
+}
+
+.navbar-custom .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #fff; /* Couleur de la ligne */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease; /* Animation de la ligne */
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #ffcc00; /* Changement de couleur au survol */
+}
+
+.navbar-custom .navbar-nav .nav-link:hover::after {
+    width: 100%; /* Ligne qui s'étend au survol */
+}
+
+.navbar-custom .navbar-nav .nav-link.active {
+    font-weight: bold;
+}
+
+/* Contenu principal */
+.content-1 {
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.content-1 .titre {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.content-1 .p-content-1 {
+    font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: #131B1D;
+    color: #fff;
+    font-size: 18px;
+    margin-top: auto; /* Pour pousser le footer en bas */
+}

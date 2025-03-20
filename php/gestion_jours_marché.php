@@ -104,7 +104,7 @@ $bdd = null;
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="gestionnaire.php">
                 <i class="fa-solid fa-house-user logo"></i> <!-- Logo avec classe "logo" -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,7 +113,7 @@ $bdd = null;
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="gestionnaire.php">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="gestion_jours_marché.php">Gestion jour</a>
@@ -128,16 +128,18 @@ $bdd = null;
             </div>
         </div>
     </nav>
-    <div class="content-wrap">
-        <div class="wrapper">
-            <h1> Ajouter des jour de marché</h1>
+    <div class="carre">
+
+        <div class="content-wrap">
+            <div class="wrapper">
+                <h1> Ajouter des jour de marché</h1>
             <?php if ($successa): ?>
                 <p style="color: rgb(167, 223, 167);"><?php echo $successa; ?></p>
             <?php endif; ?>
 
             <?php if ($errora): ?>
                 <p style="color: red;"><?php echo $errora; ?></p>
-            <?php endif; ?>
+                <?php endif; ?>
                 <form action="" method="post" >
                     <div class="input-box">
                         <label for="date">Date :</label>
@@ -155,23 +157,24 @@ $bdd = null;
             <h1> Supprimer un jour de marché</h1>
             <?php if ($successb): ?>
                 <p style="color: rgb(167, 223, 167);"><?php echo $successb; ?></p>
-            <?php endif; ?>
-
-            <?php if ($errorb): ?>
-                <p style="color: red;"><?php echo $errorb; ?></p>
-            <?php endif; ?>
-                <form action="" method="post" >
-                    <div class="input-box">
-                        <label for="date">Date :</label>
-                        <input type="date" id="date" name="date_marche" />
-                    </div>
-                    
-                    <button type="submit" class="btn" name="delete_date">Supprimer</button>
-                    
-                </form>
+                <?php endif; ?>
+                
+                <?php if ($errorb): ?>
+                    <p style="color: red;"><?php echo $errorb; ?></p>
+                    <?php endif; ?>
+                    <form action="" method="post" >
+                        <div class="input-box">
+                            <label for="date">Date :</label>
+                            <input type="date" id="date" name="date_marche" />
+                        </div>
+                        
+                        <button type="submit" class="btn" name="delete_date">Supprimer</button>
+                        
+                    </form>
+                </div>
+            </div>
+            
         </div>
-    </div>
-    
     <footer>
             © 2025 Tellis. Tous droits réservés.
     </footer>
