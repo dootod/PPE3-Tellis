@@ -1,0 +1,273 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Style général */
+body {
+    background-image: url('./images/fond-commercant.jpg') !important; /*image libre de droit*/ 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main h2{
+    text-align: center;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px auto;
+    max-width: 80%;
+}
+.market-map {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #dddddd7e;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, .2);
+    background: transparent;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.place {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s;
+    position: relative;
+    height: 50px;   
+}
+
+.place:hover {
+    transform: scale(1.1);
+    background-color: orange;
+}
+
+/* Formes variées */
+.square {
+    width: 70px;
+    height: 80px;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.rectangle-haut {
+    width: 70px;
+    height: 110px;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.rectangle {
+    width: 120px;
+    height: 60px;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.circle {
+    width: 70px;
+    height: 70px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.long-rectangle {
+    width: 160px;
+    height: 60px;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.very-long-rectangle {
+    width: 190px;
+    height: 60px;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.selected {
+    background-color: green !important;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+button {
+    background-color: #3e9941;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.reserve-button-container{
+    color: white;
+    border: none;
+    padding: 1px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+
+button:hover {
+    background-color: #257429;
+}
+
+
+#reserve-btn {
+    display: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 250px;
+    text-align: center;
+    justify-content: center;
+}
+
+#date-modal {
+    background-color: #dddddd7e;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, .2);
+    background: transparent;
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    width: 300px;
+    text-align: center;
+    color: white;
+}
+
+#confirm-date-btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+
+
+/* Navbar personnalisée */
+.navbar-custom {
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    padding: 10px 0;
+}
+
+.navbar-custom .navbar-brand .logo {
+    font-size: 2rem; /* Taille du logo augmentée */
+    color: #fff;
+    transition: transform 0.3s ease; /* Animation au survol */
+}
+
+.navbar-custom .navbar-brand .logo:hover {
+    transform: scale(1.1); /* Effet de zoom au survol */
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    font-size: 1.2rem; /* Taille de la police augmentée */
+    color: #fff;
+    margin: 0 10px;
+    position: relative;
+    transition: color 0.3s ease; /* Transition de couleur */
+}
+
+.navbar-custom .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #fff; /* Couleur de la ligne */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease; /* Animation de la ligne */
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #ffcc00; /* Changement de couleur au survol */
+}
+
+.navbar-custom .navbar-nav .nav-link:hover::after {
+    width: 100%; /* Ligne qui s'étend au survol */
+}
+
+.navbar-custom .navbar-nav .nav-link.active {
+    font-weight: bold;
+}
+
+/* Contenu principal */
+.content-1 {
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.content-1 .titre {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.content-1 .p-content-1 {
+    font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: #131B1D;
+    color: #fff;
+    font-size: 18px;
+    margin-top: auto; /* Pour pousser le footer en bas */
+}

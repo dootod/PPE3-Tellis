@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Redirection en fonction du type de profil
         if ($user['typeprofil_profil'] === 'commerçant') {
-            header('Location: commercant.php');
+            header('Location: ../client/accueil_client.php');
             exit();
         } elseif ($user['typeprofil_profil'] === 'gestionnaire') {
             header('Location: gestionnaire.php');

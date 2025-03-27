@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url("../img/fond.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto; 
+    padding-top: 80px; 
+    justify-content: center;
+    align-items: center;
+}
+
+.content-wrap {
+    flex: 1;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 800px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    text-align: center;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    text-decoration: none; /* Enlever le soulignement des liens avec la classe btn */
+    display: inline-block;
+    line-height: 45px;
+}
+
+table th, table td {
+    padding: 10px 20px; /* Ajoute de l'espace à l'intérieur des cellules */
+    color: rgba(1, 255, 170, 0.623);
+    text-shadow: 
+        -1px -1px 0 rgba(0, 95, 63, 0.623),  
+        1px -1px 0 rgba(0, 95, 63, 0.623),
+        -1px 1px 0 rgba(0, 95, 63, 0.623),
+        1px 1px 0 rgba(0, 95, 63, 0.623); /* Ajoute une bordure noire autour des lettres */
+}
+
+img {
+    width: 50px; /* Définir la largeur de l'image */
+    height: 50px; /* Définir la hauteur de l'image */
+}
+/* Responsive styles */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .left-content {
+        max-width: 50%;
+    }
+}
