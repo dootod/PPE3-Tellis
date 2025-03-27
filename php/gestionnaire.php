@@ -33,13 +33,7 @@ if (!isset($_SESSION['username']) || $_SESSION['type_profil'] !== 'gestionnaire'
                         <a class="nav-link active" aria-current="page" href="#">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion jour</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion emplacement</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion reservation</a>
+                        <a class="nav-link" href="../gestionnaire/gestion_jours_marché.php">Gestion jour</a>
                     </li>
                 </ul>
             </div>
@@ -50,7 +44,7 @@ if (!isset($_SESSION['username']) || $_SESSION['type_profil'] !== 'gestionnaire'
         <div class="row justify-content-center">
             <div class="col-md-8 content-1 text-center">
                 <h1 class="titre">
-                    Bienvenue dans l'espace gestionnaire <?php echo htmlspecialchars($_SESSION['username']); ?> !
+                    Bienvenue dans l'espace gestionnaire <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong> !
                 </h1>
                 <p class="p-content-1">Vous êtes maintenant connecté sur votre compte gestionnaire et 
                     donc vous pouvez gérer les jours, les emplacements et les reservations.

@@ -1,3 +1,6 @@
+<!-- Cette page nous sert uniquement pour créer des comptes gestionnaires et seulement les administrateurs 
+(donc Thomas, Maxence, Rayan et Gaëlle pourrons l'utiliser) -->
+
 <?php
 session_start();
 
@@ -33,11 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $query->execute([
             'username' => $username,
             'password' => $hashed_password,
-            'profile_type' => 'commerçant'
+            'profile_type' => 'gestionnaire'
         ]);
 
         // Redirection vers la page de connexion
-        header('Location: index.php');
+        header('Location: ../index.php');
         exit();
     }
 }
@@ -49,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - Marché de Nantes</title>
-    <link rel="stylesheet" href="../css/styles_inscription.css">
+    <link rel="stylesheet" href="../../css/styles_inscription.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -57,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="content-wrap">
             <div class="wrapper">
                 <form action="" method="POST">
-                    <h1>S'inscrire</h1>
+                    <h1>Inscription pour les gestionnaires</h1>
                     <?php if (!empty($error_message)): ?>
                         <p style="color: red; text-align: center;"><?php echo $error_message; ?></p>
                     <?php endif; ?>

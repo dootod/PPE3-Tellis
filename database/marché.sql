@@ -53,9 +53,10 @@ CREATE TABLE `emplacement` (
 --
 
 CREATE TABLE `jours_marche` (
-  `id_jours_marche` int NOT NULL,
+  `id_jours_marche` int NOT NULL AUTO_INCREMENT,
   `semaines_jours_marche` int DEFAULT NULL,
-  `jours_marche` date DEFAULT NULL
+  `jours_marche` date DEFAULT NULL,
+  PRIMARY KEY (`id_jours_marche`)  -- Clé primaire définie ici
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -66,7 +67,7 @@ CREATE TABLE `jours_marche` (
 
 CREATE TABLE `profil` (
   `login_profil` varchar(50) NOT NULL,
-  `password_profil` varchar(255) DEFAULT NULL,  <!-- Modifié en VARCHAR(255) -->
+  `password_profil` varchar(255) DEFAULT NULL,  -- Modifié en VARCHAR(255)
   `typeprofil_profil` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -113,8 +114,9 @@ ALTER TABLE `emplacement`
 --
 -- Indexes for table `jours_marche`
 --
-ALTER TABLE `jours_marche`
-  ADD PRIMARY KEY (`id_jours_marche`);
+-- Supprimez cette ligne car la clé primaire est déjà définie dans la déclaration de la table
+-- ALTER TABLE `jours_marche`
+--   ADD PRIMARY KEY (`id_jours_marche`);
 
 --
 -- Indexes for table `profil`
@@ -164,7 +166,7 @@ ALTER TABLE `selectionner`
 --
 -- Modifier la colonne password_profil pour stocker les mots de passe hachés
 --
-ALTER TABLE `profil` MODIFY `password_profil` VARCHAR(255);  <!-- Ajout de la commande ALTER TABLE -->
+ALTER TABLE `profil` MODIFY `password_profil` VARCHAR(255);  -- Ajout de la commande ALTER TABLE
 
 COMMIT;
 
