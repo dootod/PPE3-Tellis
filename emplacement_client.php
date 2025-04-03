@@ -70,7 +70,7 @@ $bdd = null;
     <header>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="accueil_client.php">
+            <a class="navbar-brand" href="client/accueil_client.php">
                 <i class="fa-solid fa-house-user logo"></i> <!-- Logo avec classe "logo" -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
