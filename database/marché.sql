@@ -41,7 +41,7 @@ CREATE TABLE `commercant` (
 --
 
 CREATE TABLE `emplacement` (
-  `id_emplacement` int PRIMARY KEY AUTO_INCREMENT,
+  `id_emplacement` int PRIMARY KEY,
   `longueur_emplacement` decimal(15,2) DEFAULT NULL,
   `largeur_emplacement` decimal(15,2) DEFAULT NULL,
   `taille_emplacement` decimal(15,2) DEFAULT NULL

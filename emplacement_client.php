@@ -123,78 +123,70 @@ $bdd = null;
         </div>
     </main>
     <script>
-        let selectedPlaces = [];
-    
-        document.querySelectorAll('.place').forEach(place => {
-            place.addEventListener('click', function () {
-                const placeId = this.getAttribute('data-place');
-    
-                // Si la place est déjà sélectionnée, on la désélectionne
-                if (selectedPlaces.includes(placeId)) {
-                    selectedPlaces = selectedPlaces.filter(place => place !== placeId);
-                    this.style.backgroundColor = ''; // Réinitialiser la couleur de fond
-                } else {
-                    // Si moins de 2 places sont sélectionnées, on ajoute la place
-                    if (selectedPlaces.length < 2) {
-                        selectedPlaces.push(placeId);
-                        this.style.backgroundColor = 'green'; // Indiquer que la place est sélectionnée
+        // Attendre que le DOM soit complètement chargé
+        document.addEventListener('DOMContentLoaded', function() {
+            let selectedPlaces = [];
+            const reserveBtn = document.getElementById('reserve-btn');
+            const places = document.querySelectorAll('.place');
+        
+            // Cacher le bouton de réservation initialement
+            reserveBtn.style.display = 'none';
+        
+            // Ajouter un événement click à chaque emplacement
+            places.forEach(place => {
+                place.addEventListener('click', function() {
+                    const placeId = this.getAttribute('data-place');
+                
+                    // Vérifier si l'emplacement est déjà sélectionné
+                    if (this.classList.contains('selected')) {
+                        // Désélectionner
+                        this.classList.remove('selected');
+                        selectedPlaces = selectedPlaces.filter(id => id !== placeId);
                     } else {
-                        alert("Vous pouvez réserver au maximum 2 places.");
+                        // Vérifier qu'on ne dépasse pas la limite de 2 emplacements
+                        if (selectedPlaces.length < 2) {
+                            // Sélectionner
+                            this.classList.add('selected');
+                            selectedPlaces.push(placeId);
+                        } else {
+                            alert('Vous ne pouvez sélectionner que 2 emplacements maximum.');
+                            return;
+                        }
                     }
-                }
-    
-                // Mettre à jour le bouton de réservation
-                if (selectedPlaces.length >= 1) {
-                    document.getElementById('reserve-btn').style.display = 'inline-block';
-                } else {
-                    document.getElementById('reserve-btn').style.display = 'none';
-                }
+                
+                    // Afficher ou cacher le bouton de réservation
+                    reserveBtn.style.display = selectedPlaces.length > 0 ? 'block' : 'none';
+                
+                    console.log('Emplacements sélectionnés:', selectedPlaces);
+                });
             });
-        });
-    
-        // Quand on clique sur le bouton pour réserver les places sélectionnées
-        document.getElementById('reserve-btn').addEventListener('click', function () {
-            // Afficher la fenêtre modale pour sélectionner la date
-            document.getElementById('date-modal').style.display = 'block';
-        });
-    
-        // Quand on clique sur "Confirmer la date"
-        document.getElementById('confirm-date-btn').addEventListener('click', function () {
-            const selectedDate = document.getElementById('reservation-date').value;
-    
-            if (!selectedDate) {
-                alert("Veuillez sélectionner une date.");
-            } else {
-                // Envoyer une requête AJAX pour vérifier la disponibilité de la date
-                fetch('check_date_availability.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ date: selectedDate })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.available) {
-                        alert(`Réservation confirmée pour les places ${selectedPlaces.join(', ')} le ${selectedDate}.`);
-                        // Vous pouvez ici ajouter la logique pour envoyer les données à un serveur ou sauvegarder la réservation
-                    } else {
-                        alert("La date sélectionnée n'est pas disponible.");
-                    }
-                })
-                .catch(error => {
-                    console.error('Erreur:', error);
-                    alert("Une erreur s'est produite lors de la vérification de la disponibilité.");
-                });
-    
-                // Fermer la fenêtre modale après confirmation
+        
+            // Gérer le clic sur le bouton de réservation
+            reserveBtn.addEventListener('click', function() {
+                document.getElementById('date-modal').style.display = 'block';
+            });
+        
+            // Gérer la confirmation de date
+            document.getElementById('confirm-date-btn').addEventListener('click', function() {
+                const date = document.getElementById('reservation-date').value;
+            
+                if (!date) {
+                    alert('Veuillez sélectionner une date.');
+                    return;
+                }
+            
+                // Ici vous pouvez ajouter le code pour envoyer la réservation au serveur
+                console.log(`Réservation confirmée pour le ${date} sur les emplacements: ${selectedPlaces.join(', ')}`);
+            
+                // Réinitialiser l'interface
                 document.getElementById('date-modal').style.display = 'none';
-                selectedPlaces = []; // Réinitialiser la sélection
-                document.getElementById('reserve-btn').style.display = 'none'; // Cacher le bouton de réservation
-                document.querySelectorAll('.place').forEach(place => {
-                    place.style.backgroundColor = ''; // Réinitialiser la couleur de fond
-                });
-            }
+                document.querySelectorAll('.place').forEach(p => p.classList.remove('selected'));
+                selectedPlaces = [];
+                reserveBtn.style.display = 'none';
+                document.getElementById('reservation-date').value = '';
+            
+                alert(`Réservation confirmée pour le ${date}!`);
+            });
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
