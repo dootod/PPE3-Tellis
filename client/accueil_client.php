@@ -47,7 +47,7 @@ setlocale(LC_TIME, 'fr_FR.UTF-8');
                         <a class="nav-link" href="gestion_reservation_client.php">Modifier réservation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../emplacement_client.html">Prendre des réservations</a>
+                        <a class="nav-link" href="../emplacement_client.php">Prendre des réservations</a>
                     </li>
                 </ul>
             </div>

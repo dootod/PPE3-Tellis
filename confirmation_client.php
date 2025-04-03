@@ -1,0 +1,69 @@
+<?php
+session_start();
+try {
+    // Connexion à la base de données
+    $bdd = new PDO('mysql:host=localhost;dbname=marché;charset=utf8', 'root', '');
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Active le mode erreur
+} catch (Exception $e) {
+    die('Erreur : ' . $e->getMessage());
+}
+
+// Variables pour afficher les messages
+$successa = "";
+$errora = "";
+
+// Fermeture de la connexion PDO
+$bdd = null;
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de Réservation</title>
+    <link rel="stylesheet" href="confirmation.css"> <!-- Lien vers le fichier CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/298ba219c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="accueil_client.php">
+                <i class="fa-solid fa-house-user logo"></i> <!-- Logo avec classe "logo" -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="client/accueil_client.php">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="client/gestion_reservation_client.php">Modifier réservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="emplacement_client.php">Prendre des réservations</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <main>
+        <div class="confirmation-container">
+            <h1>Merci pour votre réservation !</h1>
+            <p>Votre réservation a été confirmée avec succès.</p>
+            <button id="return-btn" onclick="window.location.href='emplacement_client.html'">Réserver d'autres emplacements</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Marché Local. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

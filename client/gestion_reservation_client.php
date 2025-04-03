@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                         <a class="nav-link active" href="gestion_reservation_client.php">Modifier réservation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../emplacement_client.html">Prendre des réservations</a>
+                        <a class="nav-link" href="../emplacement_client.php">Prendre des réservations</a>
                     </li>
                 </ul>
             </div>
