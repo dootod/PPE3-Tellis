@@ -85,7 +85,7 @@
                         echo '</div>';
                         
                         try {
-                            $connexion = new PDO('mysql:host=localhost;dbname=marché', 'root', '');
+                            $bdd = new PDO('mysql:host=localhost;dbname=marché;charset=utf8', 'root', '');
                             $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                             
                             $query = $connexion->prepare("INSERT INTO emplacement (id_emplacement, longueur_emplacement, largeur_emplacement, taille_emplacement) VALUES (:id_jour, :longueur, :largeur, :taille)");
