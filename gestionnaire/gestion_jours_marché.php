@@ -121,6 +121,9 @@ $bdd = null;
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Gestion jour</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../essai.php">Taille emplacement</a>
+                    </li>
                 </ul>
             </div>
         </div>

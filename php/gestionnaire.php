@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username']) || $_SESSION['type_profil'] !== 'gestionnaire') {
-    header('Location: index.php');
-    exit();
-}
-
 // Connexion à la base de données
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=marché;charset=utf8', 'root', '');
@@ -47,6 +42,9 @@ $req->closeCursor();
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../gestionnaire/gestion_jours_marché.php">Gestion jour</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../essai.php">Taille emplacement</a>
                     </li>
                 </ul>
             </div>

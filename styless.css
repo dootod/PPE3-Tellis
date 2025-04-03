@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: url("img/fond.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 20px;
+}
+
+/* Styles spécifiques pour le formulaire */
+.magic-form {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2),
+                inset 0 0 15px rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    transition: all 0.5s ease;
+}
+
+.magic-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.magic-form h3 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.magic-form h3:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    border-radius: 3px;
+}
+
+.magic-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: white;
+    padding: 15px 25px;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.magic-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.magic-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.magic-btn {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(254, 180, 123, 0.4);
+}
+
+.magic-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(254, 180, 123, 0.6);
+}
+
+.result-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease;
+}
+
+.success {
+    background: rgba(46, 213, 115, 0.2);
+    color: #2ed573;
+    border-left: 4px solid #2ed573;
+}
+
+.error {
+    background: rgba(255, 71, 87, 0.2);
+    color: #ff4757;
+    border-left: 4px solid #ff4757;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navbar personnalisée */
+.navbar-custom {
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    padding: 10px 0;
+}
+
+.navbar-custom .navbar-brand .logo {
+    font-size: 2rem; /* Taille du logo augmentée */
+    color: #fff;
+    transition: transform 0.3s ease; /* Animation au survol */
+}
+
+.navbar-custom .navbar-brand .logo:hover {
+    transform: scale(1.1); /* Effet de zoom au survol */
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    font-size: 1.2rem; /* Taille de la police augmentée */
+    color: #fff;
+    margin: 0 10px;
+    position: relative;
+    transition: color 0.3s ease; /* Transition de couleur */
+}
+
+.navbar-custom .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #fff; /* Couleur de la ligne */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease; /* Animation de la ligne */
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #ffcc00; /* Changement de couleur au survol */
+}
+
+.navbar-custom .navbar-nav .nav-link:hover::after {
+    width: 100%; /* Ligne qui s'étend au survol */
+}
+
+.navbar-custom .navbar-nav .nav-link.active {
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: #131B1D;
+    color: #fff;
+    font-size: 18px;
+    margin-top: auto; /* La clé pour le footer en bas */
+}

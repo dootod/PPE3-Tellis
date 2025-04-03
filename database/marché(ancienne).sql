@@ -41,10 +41,9 @@ CREATE TABLE `commercant` (
 --
 
 CREATE TABLE `emplacement` (
-  `id_emplacement` int PRIMARY KEY AUTO_INCREMENT,
-  `longueur_emplacement` decimal(15,2) DEFAULT NULL,
-  `largeur_emplacement` decimal(15,2) DEFAULT NULL,
-  `taille_emplacement` decimal(15,2) DEFAULT NULL
+  `id_emplacement` int NOT NULL,
+  `abscisses_emplacement` decimal(15,2) DEFAULT NULL,
+  `ordonnées_emplacement` decimal(15,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -109,6 +108,9 @@ ALTER TABLE `commercant`
 --
 -- Indexes for table `emplacement`
 --
+ALTER TABLE `emplacement`
+  ADD PRIMARY KEY (`id_emplacement`);
+
 --
 -- Indexes for table `jours_marche`
 --
