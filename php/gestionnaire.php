@@ -41,6 +41,9 @@ $req->closeCursor();
                         <a class="nav-link active" aria-current="page" href="#">Accueil</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="../gestionnaire/gestion_jours_marché.php">Gestion jour</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="../essai.php">Taille emplacement</a>
                     </li>
                 </ul>

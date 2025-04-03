@@ -44,9 +44,6 @@ setlocale(LC_TIME, 'fr_FR.UTF-8');
                         <a class="nav-link active" aria-current="page" href="accueil_client.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="gestion_reservation_client.php">Modifier réservation</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="../emplacement_client.php">Prendre des réservations</a>
                     </li>
                 </ul>
@@ -87,10 +84,7 @@ setlocale(LC_TIME, 'fr_FR.UTF-8');
                 </tbody>
             </table>
             <div style="text-align: center; margin-top: 20px;" class="btn">
-                <a href="../emplacement_client.html" style="text-decoration: none; color: black;">Prendre des réservations</a>
-            </div>
-            <div style="text-align: center; margin-top: 50px;" class="btn">
-                <a href="gestion_reservation_client.php" style="text-decoration: none; color: black;">Modifier mes réservations</a>
+                <a href="../emplacement_client.php" style="text-decoration: none; color: black;">Prendre des réservations</a>
             </div>
         </div>
     </main>

@@ -38,6 +38,9 @@
                         <a class="nav-link" aria-current="page" href="php/gestionnaire.php">Accueil</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="gestionnaire/gestion_jours_marché.php">Gestion jour</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="essai.php">Taille emplacement</a>
                     </li>
                 </ul>

@@ -82,9 +82,6 @@ $bdd = null;
                         <a class="nav-link" aria-current="page" href="client/accueil_client.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="client/gestion_reservation_client.php">Modifier réservation</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="emplacement_client.php">Prendre des réservations</a>
                     </li>
                 </ul>
